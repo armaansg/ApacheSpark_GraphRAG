@@ -3,7 +3,6 @@ data/raw/git/apache-spark/
 
 # --- Ingested / generated data (rebuild locally) ---
 data/raw/jira/
-data/normalized/
 data/manifests/*.json
 !data/manifests/.gitkeep
 
