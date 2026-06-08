@@ -1,0 +1,35 @@
+
+mappings:
+  "Spark Core": ["core"]
+  "SQL": ["sql"]
+  "Optimizer": ["sql"]
+  "Structured Streaming": ["streaming"]
+  "PySpark": ["python/pyspark"]
+  "Pandas API on Spark": ["python/pyspark"]
+  "Documentation": ["docs"]
+  "Tests": ["core", "sql", "streaming", "python/pyspark"]
+
+unmapped:
+  - Kubernetes
+  - Connect
+  - Project Infra
+  - Build
+  - Web UI
+  - ML
+  - MLlib
+  - Declarative Pipelines
+  - Spark Docker
+  - Spark Submit
+  - YARN
+  - Spark Shell
+  - Shuffle
+  - Examples
+  - Security
+  - Java API
+  - Deploy
+  - Block Manager
+  - Protobuf
+  - Scheduler
+  - Input/Output
+  - SparkR
+  - R
