@@ -1,0 +1,37 @@
+# --- Spark clone (multi-GB; re-download with ingest script) ---
+data/raw/git/apache-spark/
+
+# --- Ingested / generated data (rebuild locally) ---
+data/raw/jira/
+data/normalized/
+data/manifests/*.json
+!data/manifests/.gitkeep
+
+# --- Python ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Logs ---
+*.log
+logs/

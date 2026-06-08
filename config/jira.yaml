@@ -1,0 +1,3 @@
+base_url: https://issues.apache.org/jira
+jql: "project = SPARK AND updated >= -90d ORDER BY updated DESC"
+page_size: 50
