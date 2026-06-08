@@ -7,6 +7,7 @@ data/manifests/*.json
 !data/manifests/.gitkeep
 
 # --- Python ---
+.env
 .venv/
 venv/
 __pycache__/
