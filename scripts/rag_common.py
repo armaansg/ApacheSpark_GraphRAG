@@ -18,6 +18,7 @@ BASE = os.environ["COMPANY_API_BASE"].rstrip("/")
 EMBED_MODEL = os.environ["EMBEDDING_MODEL"]
 CHAT_MODEL = os.environ["CHAT_MODEL"]
 TOP_K = 10
+MAX_PRIMARY_SEEDS = 5
 LEXICAL_WEIGHT = 0.12
 JIRA_KEY_RE = re.compile(r"SPARK-\d+", re.I)
 STOPWORDS = frozenset({
@@ -26,15 +27,6 @@ STOPWORDS = frozenset({
     "what", "when", "where", "which", "who", "why", "with", "would", "you",
 })
 
-def extract_jira_keys(query: str) -> list[str]:
-    seen = set()
-    keys = []
-    for match in JIRA_KEY_RE.finditer(query):
-        key = match.group(0).upper()
-        if key not in seen:
-            seen.add(key)
-            keys.append(key)
-    return keys
 
 def extract_jira_keys(query: str) -> list[str]:
     seen = set()
@@ -45,6 +37,18 @@ def extract_jira_keys(query: str) -> list[str]:
             seen.add(key)
             keys.append(key)
     return keys
+
+
+def missing_jira_keys(keys: list[str], by_key: dict) -> list[str]:
+    return [key for key in keys if key not in by_key]
+
+
+def primary_seeds(hits: list, keys: list[str], by_key: dict, max_generic: int = MAX_PRIMARY_SEEDS) -> list:
+    """Seeds used for graph expansion (subset of retrieve hits)."""
+    if keys:
+        pinned = [by_key[key] for key in keys if key in by_key]
+        return pinned
+    return hits[:max_generic]
 
 def keyword_overlap(query: str, item: dict) -> float:
     words = [
