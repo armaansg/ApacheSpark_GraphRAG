@@ -1,0 +1,6 @@
+# Existing dependency (preserved).
+python-dotenv
+
+# Phase 1 Postgres 16 + pgvector Graph-RAG store.
+psycopg[binary]   # PostgreSQL driver (psycopg 3)
+pgvector          # register the pgvector `vector` type with psycopg
