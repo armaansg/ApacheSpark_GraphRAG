@@ -4,3 +4,8 @@ python-dotenv
 # Phase 1 Postgres 16 + pgvector Graph-RAG store.
 psycopg[binary]   # PostgreSQL driver (psycopg 3)
 pgvector          # register the pgvector `vector` type with psycopg
+
+# Phase 2 loader uses only the drivers above. The embedding backfill's
+# sentence-transformers embedder is OPTIONAL — install only if you use it:
+#   pip install sentence-transformers
+# (the OpenAI-compatible embedder needs no extra deps; it uses urllib.)
